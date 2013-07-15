@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>Voxels!</title>
+  <style>
+    html, body{ overflow: hidden; background-color: #333; text-align: center;}
+    #log { position: absolute; top:0; left:5px; text-align: left;}   
+    #log p{ color:white; margin:0; padding:0;}
+  </style>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/require.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/StrategyControls.js"></script>
+  <script src="js/three.detector.js"></script>
+
+</head>
+<body onload="init();">
+
+  <script type="text/javascript">
+  var renderer = require('js/renderer');
+
+    function init(){
+
+      if(Detector.webgl){
+          renderer.init(true);
+      }else{
+        $("#viewport").html('<img src="/sectorimage" />');
+        log("Jammer maar je browser ondersteund dit niet.");
+      }
+
+      
+    }
+  </script>
+  
+  <script>
+    function log(text){
+      $("#log").append("<p>"+text+"</p>");
+    }
+  </script>
+  <div id="viewport"></div>
+  <div id="log"></div>
+</body>
+</html>
